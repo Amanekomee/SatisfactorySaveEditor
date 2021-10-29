@@ -23,5 +23,13 @@ namespace SatisfactorySaveEditor.Cheats
         {
             InitializeComponent();
         }
+
+        public string AValue = "";
+
+        public void Done_Click(object sender, RoutedEventArgs e)
+        {
+            AValue = "test";
+            DialogResult = true;
+        }
     }
 }

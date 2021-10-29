@@ -4,8 +4,6 @@ using SatisfactorySaveParser.Structures;
 using System;
 using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Forms;
-using MessageBox = System.Windows.MessageBox;
 
 namespace SatisfactorySaveEditor.Cheats
 {
@@ -25,6 +23,23 @@ namespace SatisfactorySaveEditor.Cheats
         }
 
         private bool RotateFoundations(SaveObjectModel rootItem)
+        {
+            var window = new RotateFoundationsWindow()
+            {
+                Owner = Application.Current.MainWindow
+            };
+            if (!window.ShowDialog().Value)
+                return false;
+
+
+
+
+
+            return true;
+        }
+
+        /*
+        private bool RotateFoundations2(SaveObjectModel rootItem)
         {
             List<SaveObjectModel> foundationsList = rootItem.FindChild("Foundation", true).DescendantSelfViewModel;
             if (foundationsList == null)
@@ -100,13 +115,14 @@ namespace SatisfactorySaveEditor.Cheats
             MessageBox.Show($"Successfully aligned {counter} foundations to world grid.");
             return true;
         }
+         */
 
-        public double QuaternionToEuler(Vector4 rotation)
+        public static double QuaternionToEuler(Vector4 rotation)
         {
             return Math.Atan2(rotation.Z, rotation.W) * 180 / Math.PI * 2;
         }
 
-        public Vector4 EulerToQuaternion(double e)
+        public static Vector4 EulerToQuaternion(double e)
         {
             var rotation = new Vector4
             {
