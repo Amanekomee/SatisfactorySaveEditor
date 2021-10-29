@@ -60,6 +60,9 @@ namespace SatisfactorySaveEditor.Cheats
                     {
                         if (probablyEdited)
                             ((Vector)((StructProperty)((DynamicStructDataViewModel)elem.StructData).Fields[0].Model).Data).Data.Z -= offset; // Move the spawn point under the map
+                        // Patch for un-undo the spawn point
+                        if (!probablyEdited && ((Vector)((StructProperty)((DynamicStructDataViewModel)elem.StructData).Fields[0].Model).Data).Data.Z < -14200f)
+                            ((Vector)((StructProperty)((DynamicStructDataViewModel)elem.StructData).Fields[0].Model).Data).Data.Z = ((SaveEntityModel)animalSpawner).Position.Z;
 
                         // Set WasKilled to true so they don't respawn after deleting them
                         ((BoolPropertyViewModel)((DynamicStructDataViewModel)elem.StructData).Fields[2]).Value = false;
