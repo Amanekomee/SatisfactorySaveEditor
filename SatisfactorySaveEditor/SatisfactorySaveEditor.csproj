@@ -111,6 +111,10 @@
     <Compile Include="Cheats\DeduplicateSchematicsCheat.cs" />
     <Compile Include="Cheats\EverythingBoxCheat.cs" />
     <Compile Include="Cheats\RotateFoundationsCheat.cs" />
+    <Compile Include="Cheats\TestCheat.cs" />
+    <Compile Include="Cheats\TestWindow.xaml.cs">
+      <DependentUpon>TestWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Cheats\UndoDeleteEnemiesCheat.cs" />
     <Compile Include="Cheats\ICheat.cs" />
     <Compile Include="Cheats\DeleteEnemiesCheat.cs" />
@@ -213,6 +217,10 @@
     <Page Include="Cheats\MassDismantleWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Cheats\TestWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Cheats\UnlockResearchWindow.xaml">
       <SubType>Designer</SubType>
